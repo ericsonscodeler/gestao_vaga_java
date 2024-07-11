@@ -1,4 +1,4 @@
-package br.com.ericson.gestao_vaga.modules.candidate;
+package br.com.ericson.gestao_vaga.modules.candidate.entities;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
