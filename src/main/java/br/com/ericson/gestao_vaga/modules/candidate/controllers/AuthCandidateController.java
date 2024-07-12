@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ericson.gestao_vaga.modules.candidate.dto.AuthCandidateRequestDTO;
-import br.com.ericson.gestao_vaga.modules.candidate.useCases.AuthenticateCandidateUseCase;
+import br.com.ericson.gestao_vaga.modules.candidate.useCases.AuthCandidateUseCase;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/candidate")
 public class AuthCandidateController {
 
     @Autowired
-    private AuthenticateCandidateUseCase authenticateCandidateUseCase;
+    private AuthCandidateUseCase authenticateCandidateUseCase;
 
-    @PostMapping("/candidate")
+    @PostMapping("/auth")
     public ResponseEntity<Object> auth(@RequestBody AuthCandidateRequestDTO authCandidateDTO) {
         try {
             var token = this.authenticateCandidateUseCase.execute(authCandidateDTO);

@@ -13,13 +13,13 @@ import br.com.ericson.gestao_vaga.modules.company.dto.AuthCompanyDto;
 import br.com.ericson.gestao_vaga.modules.company.useCases.AuthCompanyUseCase;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/company")
 public class AuthCompanyController {
 
     @Autowired
     private AuthCompanyUseCase authCompanyUseCase;
 
-    @RequestMapping("/company")
+    @RequestMapping("/auth")
     public ResponseEntity<Object> create(@RequestBody AuthCompanyDto authCompanyDto) {
 
         try {

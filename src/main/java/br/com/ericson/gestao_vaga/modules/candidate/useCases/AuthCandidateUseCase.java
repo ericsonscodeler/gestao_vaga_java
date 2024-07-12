@@ -19,7 +19,7 @@ import br.com.ericson.gestao_vaga.modules.candidate.dto.AuthCandidateResponseDTO
 import br.com.ericson.gestao_vaga.modules.candidate.repositories.CandidateRepository;
 
 @Service
-public class AuthenticateCandidateUseCase {
+public class AuthCandidateUseCase {
 
     @Value("${security.token.secret}")
     private String secretKey;
@@ -48,7 +48,7 @@ public class AuthenticateCandidateUseCase {
         var token = JWT.create()
                 .withIssuer("java")
                 .withSubject(candidate.getId().toString())
-                .withClaim("roles", Arrays.asList("candidate"))
+                .withClaim("roles", Arrays.asList("CANDIDATE"))
                 .withExpiresAt(expiresIn)
                 .sign(algorithm);
 
