@@ -3,6 +3,7 @@ package br.com.ericson.gestao_vaga.modules.company.entities;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,10 +28,14 @@ public class JobEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Schema(example = "Vaga para design")
     private String description;
+
+    @Schema(example = "GYM pass")
     private String benefits;
 
     @NotBlank(message = "Este campo é obrigatório")
+    @Schema(example = "SENIOR")
     private String level;
 
     @ManyToOne

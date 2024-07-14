@@ -68,7 +68,7 @@ public class CandidateController {
     @GetMapping("/job")
     @PreAuthorize("hasRole('CANDIDATE')")
     @Tag(name = "Candidato", description = "Infomações do candidato")
-    @Operation(summary = "Listagem de vagas disponíveis para o candidato", description = "Essa função é responsável por lsitar todas as vagas disponíveis, baseadas no filtro")
+    @Operation(summary = "Listagem de vagas disponíveis para o candidato", description = "Essa função é responsável por listar todas as vagas disponíveis, baseadas no filtro")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {
                     @Content(array = @ArraySchema(schema = @Schema(implementation = JobEntity.class)))
