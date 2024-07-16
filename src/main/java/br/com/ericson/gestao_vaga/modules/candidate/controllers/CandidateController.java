@@ -3,7 +3,6 @@ package br.com.ericson.gestao_vaga.modules.candidate.controllers;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

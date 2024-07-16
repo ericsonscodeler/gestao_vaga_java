@@ -16,10 +16,9 @@ import br.com.ericson.gestao_vaga.modules.candidate.repositories.CandidateReposi
 import br.com.ericson.gestao_vaga.modules.company.entities.JobEntity;
 import br.com.ericson.gestao_vaga.modules.company.repositories.JobRepository;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
 import java.util.UUID;

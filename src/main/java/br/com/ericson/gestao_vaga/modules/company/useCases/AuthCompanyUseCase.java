@@ -46,12 +46,10 @@ public class AuthCompanyUseCase {
 
         var expiresIn = Instant.now().plus(Duration.ofHours(2));
 
-        var token = JWT.create()
-                .withIssuer("java")
-                .withSubject(company.getId().toString())
+        var token = JWT.create().withIssuer("java")
                 .withExpiresAt(expiresIn)
+                .withSubject(company.getId().toString())
                 .withClaim("roles", Arrays.asList("COMPANY"))
-                .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .sign(algorithm);
 
         var authCompanyResponseDTO = AuthCompanyResponseDTO
