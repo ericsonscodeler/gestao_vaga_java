@@ -87,7 +87,7 @@ public class CreateJobControllerTest {
                                 .level("LEVEL_TEST")
                                 .build();
 
-                var result = mvc.perform(MockMvcRequestBuilders.post("/company/job/")
+                mvc.perform(MockMvcRequestBuilders.post("/company/job/")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(TestUtils.objectToJSON(
                                                 createJobDTO))
@@ -96,5 +96,6 @@ public class CreateJobControllerTest {
                                                                 UUID.randomUUID(),
                                                                 "secret")))
                                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
+
         }
 }
