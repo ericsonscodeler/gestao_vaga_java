@@ -1,5 +1,9 @@
 package br.com.ericson.gestao_vaga.modules.company.controllers;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.UUID;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import br.com.ericson.gestao_vaga.exceptions.CompanyNotFoundException;
 import br.com.ericson.gestao_vaga.modules.company.dto.CreateJobDTO;
 import br.com.ericson.gestao_vaga.modules.company.entities.CompanyEntity;
 import br.com.ericson.gestao_vaga.modules.company.repositories.CompanyRepository;
@@ -71,5 +76,25 @@ public class CreateJobControllerTest {
                                 .andExpect(MockMvcResultMatchers.status().isOk());
 
                 System.out.println(result);
+        }
+
+        @Test
+        public void should_not_be_to_create_a_new_job_if_company_not_found() throws Exception {
+
+                var createJobDTO = CreateJobDTO.builder()
+                                .benefits("BENEFITS_TEST")
+                                .description("DESCRIPTION_TEST")
+                                .level("LEVEL_TEST")
+                                .build();
+
+                var result = mvc.perform(MockMvcRequestBuilders.post("/company/job/")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(TestUtils.objectToJSON(
+                                                createJobDTO))
+                                .header("Authorization",
+                                                TestUtils.generateToken(
+                                                                UUID.randomUUID(),
+                                                                "secret")))
+                                .andExpect(MockMvcResultMatchers.status().isBadRequest());
         }
 }
